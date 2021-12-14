@@ -1,0 +1,88 @@
+{
+	"pages": [
+		{
+			"className": "home",
+			"path": "/home",
+			"title": "Home",
+			"children": [
+				{
+					"contentType": "plain",
+					"component": "h1",
+					"content": "Home"
+				}
+			]
+		},
+		{
+			"className": "about",
+			"path": "/about",
+			"title": "About",
+			"children": [
+				{
+					"contentType": "plain",
+					"component": "h1",
+					"content": "About"
+				}
+			]
+		},
+		{
+			"className": "services",
+			"path": "/services",
+			"title": "Services",
+			"children": [
+				{
+					"contentType": "plain",
+					"component": "h1",
+					"content": "Services"
+				}
+			]
+		},
+		{
+			"className": "products",
+			"path": "/products",
+			"title": "Products",
+			"children": [
+				{
+					"contentType": "plain",
+					"component": "h1",
+					"content": "Products"
+				}
+			]
+		},
+		{
+			"className": "partners",
+			"path": "/partners",
+			"title": "Partners",
+			"children": [
+				{
+					"contentType": "plain",
+					"component": "h1",
+					"content": "Partners"
+				}
+			]
+		},
+		{
+			"className": "gallery",
+			"path": "/gallery",
+			"title": "Gallery",
+			"children": [
+				{
+					"contentType": "plain",
+					"component": "h1",
+					"content": "Gallery"
+				}
+			]
+		},
+		{
+			"className": "contact",
+			"path": "/contact",
+			"title": "Contact",
+			"children": [
+				{
+					"contentType": "plain",
+					"component": "h1",
+					"content": "Contact"
+				}
+			]
+		}
+	]
+}

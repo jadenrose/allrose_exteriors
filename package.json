@@ -4,16 +4,20 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "nodemon server"
+		"dev": "concurrently \"nodemon -r dotenv/config server\" \"cd client && npm run start\"",
+		"seed": "node -r dotenv/config seed"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"express": "^4.17.1"
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"mongoose": "^6.1.1"
 	},
 	"devDependencies": {
 		"concurrently": "^6.4.0",
+		"dotenv": "^10.0.0",
 		"morgan": "^1.10.0",
 		"nodemon": "^2.0.15"
 	}
