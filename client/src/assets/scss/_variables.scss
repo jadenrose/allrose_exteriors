@@ -1,0 +1,15 @@
+// colors
+$color: #464646;
+$accent: #497c22;
+$background: #ffffff;
+$logo: #c40c0c;
+
+// type
+$font-family: 'Roboto Condensed', 'Roboto', Arial, Helvetica, sans-serif;
+$normal: 400;
+$bold: 700;
+
+// whitespace
+@function spacing($factor) {
+	@return #{0.5 * $factor}em;
+}

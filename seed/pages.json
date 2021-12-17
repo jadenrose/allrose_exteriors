@@ -2,20 +2,31 @@
 	"pages": [
 		{
 			"className": "home",
-			"path": "/home",
-			"title": "Home",
+			"path": "/",
+			"title": "home",
 			"children": [
 				{
-					"contentType": "plain",
-					"component": "h1",
-					"content": "Home"
+					"contentType": "box",
+					"component": "section",
+					"children": [
+						{
+							"contentType": "plain",
+							"component": "h1",
+							"content": "Home"
+						},
+						{
+							"contentType": "plain",
+							"component": "p",
+							"content": "Lorem ipsum lolol"
+						}
+					]
 				}
 			]
 		},
 		{
 			"className": "about",
 			"path": "/about",
-			"title": "About",
+			"title": "about us",
 			"children": [
 				{
 					"contentType": "plain",
@@ -27,7 +38,7 @@
 		{
 			"className": "services",
 			"path": "/services",
-			"title": "Services",
+			"title": "services",
 			"children": [
 				{
 					"contentType": "plain",
@@ -39,7 +50,7 @@
 		{
 			"className": "products",
 			"path": "/products",
-			"title": "Products",
+			"title": "products",
 			"children": [
 				{
 					"contentType": "plain",
@@ -51,7 +62,7 @@
 		{
 			"className": "partners",
 			"path": "/partners",
-			"title": "Partners",
+			"title": "partners",
 			"children": [
 				{
 					"contentType": "plain",
@@ -63,7 +74,7 @@
 		{
 			"className": "gallery",
 			"path": "/gallery",
-			"title": "Gallery",
+			"title": "projects gallery",
 			"children": [
 				{
 					"contentType": "plain",
@@ -75,7 +86,7 @@
 		{
 			"className": "contact",
 			"path": "/contact",
-			"title": "Contact",
+			"title": "contact us",
 			"children": [
 				{
 					"contentType": "plain",

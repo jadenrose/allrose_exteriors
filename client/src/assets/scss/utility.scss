@@ -1,0 +1,17 @@
+.Typography {
+	letter-spacing: 1px;
+	margin-top: 0;
+}
+
+.Flexbox {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.Container {
+	width: 90%;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}

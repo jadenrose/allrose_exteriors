@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
-import Loading from '../components/Loading'
-import Error from '../components/Error'
-import Page from '../components/Page'
+import Container from '../components/utility/Container'
+import Loading from '../components/pages/Loading'
+import Error from '../components/pages/Error'
+import Page from '../components/pages/Page'
 
 import usePages from '../hooks/usePages'
 
@@ -12,7 +13,7 @@ const Router = () => {
 	const pages = useSelector((state) => state.pages.list)
 
 	return (
-		<BrowserRouter>
+		<Container>
 			{loading ? (
 				<Loading />
 			) : error ? (
@@ -31,7 +32,7 @@ const Router = () => {
 			) : (
 				<Error />
 			)}
-		</BrowserRouter>
+		</Container>
 	)
 }
 
