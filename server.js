@@ -15,6 +15,8 @@ app.use(cors())
 const port = process.env.PORT || 5000
 
 app.use('/pages', require('./api/pages'))
+app.use('/images', require('./api/images'))
+app.use('/submissions', require('./api/submissions'))
 
 app.listen(port, () => {
 	console.log(`server listening on port ${port}...`)

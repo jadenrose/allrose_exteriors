@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SMTP Response</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto+Condensed:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body
+		style="
+			font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+			font-size: 16px;
+			max-width: 80ch;
+			color: #464646;
+		"
+	>
+		<p>Dear {{ name }},</p>
+		<p>
+			Thank you for considering Allrose Exteriors for your contracting
+			needs. Our office will be in touch shortly to discuss details and
+			set a date and time to complete your free estimate.
+		</p>
+		<p style="margin-bottom: 4em">Below is a copy of your response:</p>
+		<table
+			style="
+				border-collapse: collapse;
+				border-radius: 4px;
+				overflow: hidden;
+				width: 100%;
+				margin-bottom: 4em;
+			"
+		>
+			<tr style="background: #d3d3d3">
+				<td style="padding: 1em"><strong>Name</strong></td>
+				<td style="padding: 1em">{{ name }}</td>
+			</tr>
+			<tr>
+				<td style="padding: 1em"><strong>Email Address</strong></td>
+				<td style="padding: 1em">{{ email }}</td>
+			</tr>
+			<tr style="background: #d3d3d3">
+				<td style="padding: 1em"><strong>Phone Number</strong></td>
+				<td style="padding: 1em">{{ phone }}</td>
+			</tr>
+			<tr>
+				<td style="padding: 1em"><strong>Address</strong></td>
+				<td style="padding: 1em">{{ address }}</td>
+			</tr>
+			<tr style="background: #d3d3d3">
+				<td style="padding: 1em"><strong>Type of Work</strong></td>
+				<td style="padding: 1em">{{ workType }}</td>
+			</tr>
+			<tr>
+				<td style="padding: 1em"><strong>Timeline</strong></td>
+				<td style="padding: 1em">{{ timeline }}</td>
+			</tr>
+			<tr style="background: #d3d3d3">
+				<td style="padding: 1em"><strong>Budget</strong></td>
+				<td style="padding: 1em">{{ budget }}</td>
+			</tr>
+			<tr>
+				<td style="padding: 1em"><strong>Other Details</strong></td>
+				<td style="padding: 1em">{{ otherDetails }}</td>
+			</tr>
+		</table>
+		<p>
+			If you have any questions or would like to give us more information,
+			please call <a href="tel:+14033472522">403-347-2522</a> to speak to
+			our office staff.
+		</p>
+		<p>Thank you and take care.</p>
+		<p>
+			This email was automatically generated. Please direct any replies to
+			<a href="mailto:allsiding@telus.net">allsiding@telus.net</a>.
+		</p>
+	</body>
+</html>
