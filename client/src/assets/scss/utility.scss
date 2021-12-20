@@ -1,6 +1,38 @@
+@use 'variables' as *;
+
 .Typography {
 	letter-spacing: 1px;
 	margin-top: 0;
+
+	&.accent {
+		color: $accent;
+	}
+
+	&.center {
+		text-align: center;
+	}
+}
+
+h1.Typography {
+	font-size: 6rem;
+	color: $accent;
+}
+
+h2.Typography {
+	font-size: 2.5rem;
+	color: $accent;
+}
+
+h3.Typography {
+	font-size: 2rem;
+}
+
+.block {
+	display: block;
+}
+
+.uppercase {
+	text-transform: uppercase;
 }
 
 .Flexbox {

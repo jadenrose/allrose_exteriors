@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
 import Container from '../components/utility/Container'
 import Loading from '../components/pages/Loading'
 import Error from '../components/pages/Error'
 import Page from '../components/pages/Page'
+import Contact from '../components/pages/Contact'
 
 import usePages from '../hooks/usePages'
 
@@ -20,7 +21,7 @@ const Router = () => {
 				<Error />
 			) : pages && pages.length ? (
 				<Routes>
-					<Route index element={<Page {...pages[0]} />} />
+					<Route element={<Page {...pages[0]} />} />
 					{pages.map((page, index) => (
 						<Route
 							key={index}
@@ -28,6 +29,8 @@ const Router = () => {
 							element={<Page {...page} />}
 						/>
 					))}
+					<Route path="/contact" element={<Contact />} />
+					<Route path="*" element={<Navigate to="" />} />
 				</Routes>
 			) : (
 				<Error />

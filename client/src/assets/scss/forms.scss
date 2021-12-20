@@ -1,0 +1,27 @@
+@use 'variables' as *;
+
+.Form {
+	text-align: center;
+
+	box-shadow: $soft-shadow;
+
+	input[type='text'] {
+		appearance: none;
+		border: none;
+		outline: none;
+		display: block;
+		width: 100%;
+		border-radius: 8px;
+		box-shadow: 0 0 0 2px #cdcdcd inset;
+		padding: spacing(3);
+	}
+}
+
+.FormControl {
+	text-align: left;
+
+	span {
+		display: block;
+		margin-bottom: spacing(1);
+	}
+}

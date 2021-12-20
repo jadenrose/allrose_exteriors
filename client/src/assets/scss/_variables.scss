@@ -1,8 +1,12 @@
 // colors
 $color: #464646;
 $accent: #497c22;
+$shadow: #7c9966;
 $background: #ffffff;
 $logo: #c40c0c;
+
+// decoration
+$soft-shadow: 10px 10px 50px rgba($shadow, 0.15);
 
 // type
 $font-family: 'Roboto Condensed', 'Roboto', Arial, Helvetica, sans-serif;

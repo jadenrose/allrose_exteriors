@@ -1,0 +1,65 @@
+@use 'variables' as *;
+
+.Page > section {
+	padding: spacing(12) 0;
+}
+
+.Contact {
+	h1 {
+		margin: 0;
+
+		.block {
+			margin: 0;
+			line-height: 0.9;
+		}
+	}
+
+	.contact-section {
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.contact-info {
+		flex-basis: 50%;
+		padding-right: spacing(12);
+	}
+
+	.contact-info-item {
+		justify-content: left;
+		padding-bottom: spacing(8);
+	}
+
+	.contact-info-icon {
+		font-size: 3rem;
+		color: $accent;
+		padding-right: spacing(1);
+	}
+
+	.contact-info-text {
+		font-size: 1.25rem;
+
+		.Typography {
+			margin: 0;
+		}
+	}
+
+	.right {
+		flex-basis: 50%;
+		margin-bottom: spacing(12);
+		justify-content: center;
+	}
+
+	.Form {
+		width: 537px;
+		height: 954px;
+		padding: spacing(4) spacing(8);
+	}
+
+	.bottom {
+		flex-basis: 100%;
+		font-size: 2rem;
+		font-weight: $bold;
+		color: $accent;
+		text-align: center;
+	}
+}

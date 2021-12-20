@@ -10,14 +10,26 @@ const Navlist = () => {
 	return (
 		<>
 			<Flexbox className="Navlist" component="ul">
-				{pages instanceof Array &&
-					pages.map((page, index) => (
-						<Box key={index} component="li" className="nav-item">
-							<NavLink className="nav-link" to={page.path}>
-								{page.title}
+				{pages instanceof Array && (
+					<>
+						{pages.map((page, index) => (
+							<Box
+								key={index}
+								component="li"
+								className="nav-item"
+							>
+								<NavLink className="nav-link" to={page.path}>
+									{page.title}
+								</NavLink>
+							</Box>
+						))}
+						<Box component="li" className="nav-item">
+							<NavLink className="nav-link" to="/contact">
+								contact
 							</NavLink>
 						</Box>
-					))}
+					</>
+				)}
 			</Flexbox>
 		</>
 	)

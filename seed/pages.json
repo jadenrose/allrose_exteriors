@@ -82,18 +82,6 @@
 					"content": "Gallery"
 				}
 			]
-		},
-		{
-			"className": "contact",
-			"path": "/contact",
-			"title": "contact us",
-			"children": [
-				{
-					"contentType": "plain",
-					"component": "h1",
-					"content": "Contact"
-				}
-			]
 		}
 	]
 }
