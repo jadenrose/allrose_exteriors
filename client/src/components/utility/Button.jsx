@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Button = ({ children, ...rest }) => (
-	<button className="Button" {...rest}>
+const Button = ({ className, children, ...rest }) => (
+	<button className={`Button${className ? ` ${className}` : ''}`} {...rest}>
 		{children}
 	</button>
 )

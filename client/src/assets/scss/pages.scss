@@ -66,3 +66,11 @@
 		text-align: center;
 	}
 }
+
+.Admin {
+	.sign-out {
+		position: fixed;
+		top: spacing(1);
+		right: spacing(1);
+	}
+}
