@@ -1,3 +1,7 @@
-const Form = ({ children }) => <form className="Form">{children}</form>
+const Form = ({ children }) => (
+	<form onSubmit={(e) => e.preventDefault()} className="Form">
+		{children}
+	</form>
+)
 
 export default Form

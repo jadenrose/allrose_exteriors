@@ -50,9 +50,12 @@
 	}
 
 	.Form {
-		width: 537px;
-		height: 954px;
+		width: 100%;
 		padding: spacing(4) spacing(8);
+
+		.Button {
+			width: 100%;
+		}
 	}
 
 	.bottom {

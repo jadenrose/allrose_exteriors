@@ -47,3 +47,23 @@ h3.Typography {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.Button {
+	cursor: pointer;
+	display: inline-block;
+	appearance: none;
+	border: none;
+	outline: none;
+	font-size: 1.5rem;
+	font-family: inherit;
+	font-weight: $bold;
+	color: $background;
+	background: $accent;
+	padding: spacing(2);
+	border-radius: 8px;
+
+	&:hover,
+	&:focus {
+		background: darken($accent, 6%);
+	}
+}

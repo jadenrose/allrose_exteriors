@@ -1,27 +1,160 @@
 @use 'variables' as *;
 
 .Form {
+	position: relative;
 	text-align: center;
-
 	box-shadow: $soft-shadow;
 
-	input[type='text'] {
+	.Loading {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: rgba($background, 0.8);
+
+		.icon {
+			font-size: 10rem;
+		}
+
+		.checkmark {
+			color: $accent;
+		}
+	}
+
+	input[type='text'],
+	input[type='email'],
+	input[type='tel'],
+	input[type='number'],
+	textarea,
+	.select {
 		appearance: none;
 		border: none;
 		outline: none;
-		display: block;
 		width: 100%;
 		border-radius: 8px;
 		box-shadow: 0 0 0 2px #cdcdcd inset;
-		padding: spacing(3);
+		padding: spacing(2);
+		color: inherit;
+		font-size: inherit;
+		font-family: inherit;
+		font-weight: inherit;
 	}
+
+	textarea {
+		min-height: spacing(16);
+		resize: none;
+	}
+
+	option {
+		appearance: none;
+		padding: spacing(2);
+	}
+}
+
+.FormGroup {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: spacing(4);
 }
 
 .FormControl {
 	text-align: left;
+	flex: 0 1 100%;
+	margin-right: spacing(2);
+
+	&:last-child {
+		margin: 0;
+	}
 
 	span {
 		display: block;
 		margin-bottom: spacing(1);
 	}
+}
+
+.select {
+	cursor: pointer;
+	position: relative;
+
+	.Typography {
+		letter-spacing: 0;
+		margin: 0;
+	}
+
+	.down-arrow {
+		font-size: 1.5rem;
+		color: #cdcdcd;
+	}
+
+	.overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.dropdown {
+		display: block;
+		position: absolute;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		left: 50%;
+		bottom: 0;
+		transform: translate(-50%, 103%);
+		background: $background;
+		box-shadow: $hard-shadow;
+		width: 110%;
+		z-index: 999;
+		border-radius: 8px;
+		overflow: hidden;
+
+		li {
+			padding: spacing(2.5);
+
+			&:hover {
+				background: #cdcdcd;
+			}
+		}
+	}
+}
+
+.currency-group {
+	position: relative;
+
+	input[type='number'] {
+		padding-left: spacing(4);
+	}
+}
+
+.currency {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: spacing(1);
+	margin: 0 spacing(0.5);
+	margin: 0;
+	background: #cdcdcd;
+	height: 100%;
+	border-radius: 8px 0 0 8px;
+
+	.dollar-sign {
+		margin: 0;
+	}
+}
+
+.error {
+	background: #c54747;
+	color: $background;
+	font-weight: $bold;
+	margin-top: 2px;
+	padding: spacing(1);
+	border-radius: 8px;
 }
