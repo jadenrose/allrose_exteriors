@@ -7,6 +7,7 @@ const UserSchema = Schema({
 		required: true,
 	},
 	token: String,
+	tokenExpires: Number,
 })
 
 module.exports = User = model('user', UserSchema)

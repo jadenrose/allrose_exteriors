@@ -59,7 +59,7 @@ const ContactForm = () => {
 		setLoading(true)
 
 		const uri = process.env.BACKEND_URI || 'http://localhost:5000'
-		const res = await axios.post(`${uri}/submissions`, formData)
+		const res = await axios.post(`${uri}/api/submissions`, formData)
 
 		console.log(res.data)
 		setErrors(initialErrors)

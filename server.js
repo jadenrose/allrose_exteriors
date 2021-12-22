@@ -7,6 +7,7 @@ const app = express()
 const db = require('./db')
 
 db()
+require('./firebase').firebaseAdmin()
 
 app.use(express.json())
 app.use(morgan('dev'))
@@ -14,9 +15,10 @@ app.use(cors())
 
 const port = process.env.PORT || 5000
 
-app.use('/pages', require('./api/pages'))
-app.use('/images', require('./api/images'))
-app.use('/submissions', require('./api/submissions'))
+app.use('/api/pages', require('./api/pages'))
+app.use('/api/images', require('./api/images'))
+app.use('/api/submissions', require('./api/submissions'))
+app.use('/api/login', require('./api/login'))
 
 app.listen(port, () => {
 	console.log(`server listening on port ${port}...`)

@@ -1,35 +1,33 @@
 const router = require('express').Router()
+const { collection, addDoc } = require('firebase/firestore')
 const fs = require('fs/promises')
 const path = require('path')
 const Handlebars = require('handlebars')
 
-const smtp = require('../smtp')
-const Submission = require('../models/submission')
+const db = require('../firebase').fireStoreDB()
 
 router.post('/', async (req, res) => {
 	try {
-		const submission = new Submission(req.body)
-
-		await submission.save()
-
-		const mailer = await smtp()
+		await addDoc(collection(db, 'submissions'), {
+			...req.body,
+			submitted: new Date(),
+		})
 
 		const html = await fs.readFile(
 			path.join(__dirname, '..', 'formReceipt.html')
 		)
-
 		const template = Handlebars.compile(html.toString())
+		const temlpateOutput = template(req.body)
 
-		const result = template(req.body)
-
-		await mailer.sendMail({
-			from: process.env.SMTP_EMAIL,
+		await addDoc(collection(db, 'mail'), {
 			to: req.body.email,
-			subject: 'Allrose Exteriors - Confirmation',
-			html: result,
+			message: {
+				subject: 'Allrose Exteriors - Confirmation',
+				html: temlpateOutput,
+			},
 		})
 
-		res.json(submission)
+		res.json({ msg: 'form submitted' })
 	} catch (err) {
 		console.error(err)
 		res.sendStatus(500)

@@ -9,7 +9,7 @@ const uri = process.env.BACKEND_URI || 'http://localhost:5000'
 
 export const fetchPages = createAsyncThunk('pages/fetchPages', async () => {
 	try {
-		const res = await axios.get(`${uri}/pages`)
+		const res = await axios.get(`${uri}/api/pages`)
 
 		return res.data
 	} catch (err) {
