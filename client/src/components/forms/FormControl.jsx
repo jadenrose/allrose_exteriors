@@ -35,10 +35,10 @@ const FormControl = ({
 
 	return (
 		<label className="FormControl">
-			<span>
+			<Typography>
 				{label}
 				{required ? ' *' : ''}
-			</span>
+			</Typography>
 			{category === 'textarea' ? (
 				<textarea value={value} onChange={onChange} {...rest} />
 			) : category === 'select' ? (

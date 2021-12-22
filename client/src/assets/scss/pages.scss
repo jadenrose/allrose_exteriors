@@ -73,4 +73,72 @@
 		top: spacing(1);
 		right: spacing(1);
 	}
+
+	.pages-tabs {
+		font-size: 1.25rem;
+		font-weight: $bold;
+		padding: spacing(1);
+		border-radius: 8px;
+		overflow: hidden;
+		background: $background;
+		box-shadow: $hard-shadow;
+		justify-content: space-between;
+		user-select: none;
+	}
+
+	.page-tab {
+		padding: spacing(2);
+		flex-grow: 1;
+		justify-content: center;
+		cursor: pointer;
+		border-radius: 4px;
+		margin-right: spacing(1);
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&.current,
+		&:hover {
+			background: $light-grey;
+		}
+	}
+}
+
+.PageTool {
+	padding: spacing(6) 0;
+}
+
+.ContentTool {
+	border: 4px solid $light-grey;
+	border-radius: 8px;
+	padding: spacing(12);
+	margin-bottom: spacing(2);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.form-children > span {
+	display: block;
+	margin-bottom: spacing(2);
+}
+
+.Flexbox.add-button {
+	justify-content: left;
+	font-size: 1.2rem;
+	width: unset;
+	cursor: pointer;
+	padding: spacing(4) 0;
+
+	&:hover .Typography {
+		text-decoration: underline;
+		text-decoration-thickness: 3px;
+		text-decoration-color: $color;
+	}
+}
+
+.add-icon {
+	margin-right: 1ch;
 }

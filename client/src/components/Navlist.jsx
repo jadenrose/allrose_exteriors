@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import Box from './utility/Box'
 import Flexbox from './utility/Flexbox'
+import Typography from './utility/Typography'
 
 const Navlist = () => {
 	const pages = useSelector((state) => state.pages.list)
@@ -19,13 +20,13 @@ const Navlist = () => {
 								className="nav-item"
 							>
 								<NavLink className="nav-link" to={page.path}>
-									{page.title}
+									<Typography>{page.title}</Typography>
 								</NavLink>
 							</Box>
 						))}
 						<Box component="li" className="nav-item">
 							<NavLink className="nav-link" to="/contact">
-								contact
+								<Typography>contact</Typography>
 							</NavLink>
 						</Box>
 					</>
