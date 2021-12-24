@@ -6,7 +6,6 @@ import Loading from '../components/pages/Loading'
 import Error from '../components/pages/Error'
 import Page from '../components/pages/Page'
 import Contact from '../components/pages/Contact'
-import Admin from '../components/pages/Admin'
 
 import usePages from '../hooks/usePages'
 
@@ -23,7 +22,6 @@ const Router = () => {
 			) : pages && pages.length ? (
 				<Routes>
 					<Route element={<Page {...pages[0]} />} />
-					<Route path="admin/*" element={<Admin />} />
 					{pages.map((page, index) => (
 						<Route
 							key={index}

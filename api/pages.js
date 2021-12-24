@@ -1,10 +1,11 @@
 const router = require('express').Router()
+const path = require('path')
 
-const page = require('../models/page')
+const Page = require(path.join(__dirname, '..', 'models', 'page'))
 
 router.get('/', async (req, res) => {
 	try {
-		const pages = await page.find()
+		const pages = await Page.find()
 
 		if (!pages) res.status(404).json({ error: 'no pages found' })
 

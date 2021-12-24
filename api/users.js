@@ -1,6 +1,7 @@
 const router = require('express').Router()
+const path = require('path')
 
-const User = require('../models/user')
+const User = require(path.join(__dirname, '..', 'models', 'user'))
 
 router.post('/', async (req, res) => {
 	try {

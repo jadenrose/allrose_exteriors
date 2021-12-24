@@ -4,8 +4,6 @@ const fs = require('fs/promises')
 const path = require('path')
 const Handlebars = require('handlebars')
 
-const db = require('../firebase').fireStoreDB()
-
 router.post('/', async (req, res) => {
 	try {
 		await addDoc(collection(db, 'submissions'), {

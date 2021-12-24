@@ -1,8 +1,8 @@
-const db = require('../db')
 const fs = require('fs/promises')
-const { join } = require('path')
+const path = require('path')
 
-const page = require('../models/page')
+const db = require(path.join(__dirname, '..', 'db'))
+const page = require(path.join(__dirname, '..', 'models', 'page'))
 
 const seed = async () => {
 	let connection
@@ -18,7 +18,7 @@ const seed = async () => {
 		}
 
 		const pagesJSON = await fs.readFile(
-			join(__dirname, 'pages.json'),
+			path.join(__dirname, 'pages.json'),
 			'utf-8'
 		)
 
