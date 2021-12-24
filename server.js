@@ -17,7 +17,7 @@ app.use('/api/pages', require(path.join(__dirname, 'api/pages')))
 app.use('/api/images', require(path.join(__dirname, 'api/images')))
 
 app.use(express.static(path.join(__dirname, 'client', 'build')))
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'client', 'build'))
 })
 
