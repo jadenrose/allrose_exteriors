@@ -1,6 +1,5 @@
 const express = require('express')
 const cors = require('cors')
-const morgan = require('morgan')
 const path = require('path')
 const serveStatic = require('serve-static')
 const history = require('connect-history-api-fallback')
@@ -12,8 +11,12 @@ const db = require(path.join(__dirname, 'db'))
 db()
 
 app.use(express.json())
-app.use(morgan('dev'))
 app.use(cors())
+
+if (process.env.NODE_ENV === 'development') {
+	const morgan = require('morgan')
+	app.use(morgan('dev'))
+}
 
 app.use('/api/pages', require(path.join(__dirname, 'api/pages')))
 app.use('/api/images', require(path.join(__dirname, 'api/images')))
