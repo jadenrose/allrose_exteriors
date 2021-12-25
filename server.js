@@ -2,6 +2,8 @@ const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
 const path = require('path')
+const serveStatic = require('serve-static')
+const history = require('connect-history-api-fallback')
 
 const app = express()
 
@@ -16,8 +18,9 @@ app.use(cors())
 app.use('/api/pages', require(path.join(__dirname, 'api/pages')))
 app.use('/api/images', require(path.join(__dirname, 'api/images')))
 
-app.use(express.static(path.join(__dirname, 'client', 'build')))
-app.get('*', (req, res) => {
+app.use(history())
+app.use('/', serveStatic(path.join(__dirname, 'client', 'build')))
+app.get('/.*/', (req, res) => {
 	res.sendFile(path.join(__dirname, 'client', 'build'))
 })
 
