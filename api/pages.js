@@ -12,7 +12,26 @@ router.get('/', async (req, res) => {
 		res.json(pages)
 	} catch (err) {
 		console.error(err)
-		res.status(500).send('server error')
+		res.sendStatus(500)
+	}
+})
+
+router.patch('/:page_id', async (req, res) => {
+	try {
+		const token = req.header('x-auth-token')
+
+		if (!token) return res.sendStatus(401)
+		if (token !== process.env.JSON_COMPOSER_SECRET)
+			return res.sendStatus(403)
+
+		const page = await Page.findByIdAndUpdate(req.body._id, {
+			$set: req.body,
+		})
+
+		res.json(page)
+	} catch (err) {
+		console.error(err)
+		res.sendStatus(500)
 	}
 })
 

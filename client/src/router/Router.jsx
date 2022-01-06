@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
-import Container from '../components/utility/Container'
 import Loading from '../components/pages/Loading'
 import Error from '../components/pages/Error'
 import Page from '../components/pages/Page'
@@ -14,7 +13,7 @@ const Router = () => {
 	const pages = useSelector((state) => state.pages.list)
 
 	return (
-		<Container>
+		<>
 			{loading ? (
 				<Loading />
 			) : error ? (
@@ -35,7 +34,7 @@ const Router = () => {
 			) : (
 				<Error />
 			)}
-		</Container>
+		</>
 	)
 }
 

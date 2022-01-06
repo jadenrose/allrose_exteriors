@@ -1,6 +1,10 @@
 const { Schema, model } = require('mongoose')
 
 const pageSchema = Schema({
+	order: {
+		type: Number,
+		default: -1,
+	},
 	className: String,
 	path: {
 		type: String,

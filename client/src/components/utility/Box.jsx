@@ -1,8 +1,8 @@
 import { createElement } from 'react'
 
-const Box = ({ component = 'div', className, children, ...rest }) =>
+const Box = ({ component, className, children, ...rest }) =>
 	createElement(
-		component,
+		component || 'div',
 		{ className: `Box${className ? ` ${className}` : ''}`, ...rest },
 		children
 	)

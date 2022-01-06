@@ -17,6 +17,10 @@
 	}
 }
 
+p.Typography {
+	line-height: 1.6;
+}
+
 h1.Typography {
 	font-size: 6rem;
 	color: $accent;
@@ -52,6 +56,57 @@ h3.Typography {
 	margin-right: auto;
 }
 
+.Card {
+	background: $background;
+	box-shadow: $soft-shadow;
+	border-radius: 2px;
+	padding: spacing(3.75);
+	flex-basis: 30%;
+	align-self: stretch;
+
+	.Typography {
+		margin: 0;
+	}
+}
+
+.card-container {
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+}
+
+.card-title {
+	align-self: center;
+	justify-content: center;
+	text-align: center;
+	border-top: 4px solid $accent;
+	padding: spacing(3.125) 0;
+}
+
+.card-body {
+	font-size: 1.5rem;
+}
+
+.card-link {
+	font-size: 1.25rem;
+	text-decoration: underline;
+	align-self: flex-end;
+	padding: spacing(2);
+	transform: translate(spacing(2), spacing(2));
+
+	&:hover {
+		color: $accent;
+	}
+
+	.svg-inline--fa {
+		color: $accent;
+		transform: translateY(2px);
+		margin-left: 1ch;
+	}
+}
+
 .Button {
 	cursor: pointer;
 	display: inline-block;
@@ -64,7 +119,7 @@ h3.Typography {
 	color: $background;
 	background: $accent;
 	padding: spacing(2);
-	border-radius: 8px;
+	border-radius: 2px;
 
 	&:hover,
 	&:focus {

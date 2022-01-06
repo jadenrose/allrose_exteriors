@@ -1,7 +1,33 @@
 @use 'variables' as *;
 
-.Page > section {
-	padding: spacing(12) 0;
+.Page {
+	padding-top: spacing(12);
+
+	.hero-text {
+		text-transform: uppercase;
+		letter-spacing: 0;
+		max-width: 700px;
+		line-height: 0.9;
+		margin: 0;
+	}
+
+	.hero-subtext {
+		margin: spacing(2.5) 0;
+		font-size: 2rem;
+		line-height: normal;
+	}
+
+	.flex-text {
+		flex: 0 1 45%;
+	}
+
+	section {
+		padding: spacing(7) 0;
+	}
+
+	section:nth-child(odd) {
+		background: $background-alt;
+	}
 }
 
 .Contact {
@@ -17,6 +43,7 @@
 	.contact-section {
 		flex-wrap: wrap;
 		justify-content: space-between;
+		align-items: baseline;
 	}
 
 	.contact-info {

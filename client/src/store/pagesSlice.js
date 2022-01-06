@@ -11,7 +11,11 @@ export const fetchPages = createAsyncThunk('pages/fetchPages', async () => {
 	try {
 		const res = await axios.get(`${uri}/api/pages`)
 
-		return res.data
+		const pages = res.data.sort((a, b) =>
+			a.order > b.order ? 1 : b.order > a.order ? -1 : 0
+		)
+
+		return pages
 	} catch (err) {
 		throw err
 	}

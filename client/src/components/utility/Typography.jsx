@@ -1,8 +1,8 @@
 import { createElement } from 'react'
 
-const Typography = ({ component = 'span', className, children, ...rest }) =>
+const Typography = ({ component, className, children, ...rest }) =>
 	createElement(
-		component,
+		component || 'span',
 		{ className: `Typography${className ? ` ${className}` : ''}`, ...rest },
 		children
 	)

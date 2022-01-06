@@ -18,8 +18,9 @@ if (process.env.NODE_ENV === 'development') {
 	app.use(morgan('dev'))
 }
 
-app.use('/api/pages', require(path.join(__dirname, 'api/pages')))
-app.use('/api/images', require(path.join(__dirname, 'api/images')))
+app.use('/api/pages', require(path.join(__dirname, 'api', 'pages')))
+app.use('/api/images', require(path.join(__dirname, 'api', 'images')))
+app.use('/api/submissions', require(path.join(__dirname, 'api', 'submissions')))
 
 app.use(history())
 app.use('/', serveStatic(path.join(__dirname, 'client', 'build')))

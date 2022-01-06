@@ -1,28 +1,21 @@
 const router = require('express').Router()
-const { collection, addDoc } = require('firebase/firestore')
 const fs = require('fs/promises')
 const path = require('path')
 const Handlebars = require('handlebars')
+const sendMail = require(path.join(__dirname, '..', 'mail'))
 
 router.post('/', async (req, res) => {
 	try {
-		await addDoc(collection(db, 'submissions'), {
-			...req.body,
-			submitted: new Date(),
-		})
-
 		const html = await fs.readFile(
 			path.join(__dirname, '..', 'formReceipt.html')
 		)
 		const template = Handlebars.compile(html.toString())
 		const temlpateOutput = template(req.body)
 
-		await addDoc(collection(db, 'mail'), {
+		sendMail({
 			to: req.body.email,
-			message: {
-				subject: 'Allrose Exteriors - Confirmation',
-				html: temlpateOutput,
-			},
+			subject: 'Allrose Exteriors - Confirmation of Submission',
+			html: temlpateOutput,
 		})
 
 		res.json({ msg: 'form submitted' })
