@@ -6,18 +6,27 @@
 	left: 0;
 	width: 100%;
 	background: $background;
-	padding: spacing(3) 0;
+	padding: spacing(1.5) 0;
 	z-index: 999;
+
+	.Container {
+		align-items: center;
+	}
+
+	.Logo {
+		margin: 0;
+	}
 }
 
 .Logo {
 	color: inherit;
 	text-decoration: none;
 	transform: translateX(5px);
+	margin-bottom: spacing(4);
 
 	.Typography {
 		letter-spacing: 0;
-		font-size: 2rem;
+		font-size: 1.25rem;
 		font-weight: $bold;
 		text-transform: uppercase;
 		font-style: italic;
@@ -70,31 +79,42 @@
 
 .Footer {
 	padding: spacing(8) 0;
+	text-align: left;
 
 	.Typography {
 		letter-spacing: 0;
 	}
+
+	.main-content-flex {
+		flex-direction: column;
+		align-items: flex-start;
+		max-width: 150px;
+		margin: 0 auto;
+	}
 }
 
-.footer-right {
+.footer-inner-content {
 	align-items: baseline;
 	justify-content: left;
-	max-width: 70%;
+	// max-width: 70%;
+	flex-direction: column;
 }
 
-.footer-right > .Box {
+.footer-inner-content > .Box {
+	font-size: 0.75rem;
 	flex-grow: 0;
 	flex-shrink: 1;
-	font-size: 0.75rem;
-	margin-left: spacing(7.2);
 	flex-basis: 50%;
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: baseline;
 }
 
-.footer-right .top-box {
-	margin-bottom: spacing(6);
+.footer-inner-content {
+	.top-box,
+	& > .Box {
+		margin-bottom: spacing(6);
+	}
 }
 
 .footer-heading {
@@ -104,8 +124,15 @@
 	font-weight: $bold;
 }
 
+.footer-subheading {
+	margin-bottom: spacing(4);
+}
+
 .service-areas {
+	flex-direction: column;
+	max-height: 200px;
 	flex-wrap: wrap;
+	align-items: flex-start;
 	justify-content: space-between;
 	margin: 0;
 

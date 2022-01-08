@@ -1,7 +1,6 @@
 @use 'variables' as *;
 
 .Typography {
-	letter-spacing: 1px;
 	margin-top: 0;
 
 	&.accent {
@@ -22,12 +21,12 @@ p.Typography {
 }
 
 h1.Typography {
-	font-size: 6rem;
+	font-size: 2.667rem;
 	color: $accent;
 }
 
 h2.Typography {
-	font-size: 2.5rem;
+	font-size: 2rem;
 	color: $accent;
 }
 
@@ -50,8 +49,8 @@ h3.Typography {
 }
 
 .Container {
-	width: 90%;
 	max-width: 1200px;
+	width: 85vw;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -60,12 +59,15 @@ h3.Typography {
 	background: $background;
 	box-shadow: $soft-shadow;
 	border-radius: 2px;
-	padding: spacing(3.75);
-	flex-basis: 30%;
-	align-self: stretch;
+	padding: 4vw;
+	flex-basis: 31%;
+	align-self: center;
+	margin-bottom: spacing(8);
+	max-width: 175px;
 
 	.Typography {
 		margin: 0;
+		letter-spacing: 0;
 	}
 }
 
@@ -81,16 +83,20 @@ h3.Typography {
 	align-self: center;
 	justify-content: center;
 	text-align: center;
-	border-top: 4px solid $accent;
+	border-top: 2px solid $accent;
 	padding: spacing(3.125) 0;
+
+	.Typography {
+		font-size: 1.25rem;
+	}
 }
 
-.card-body {
-	font-size: 1.5rem;
-}
+// .card-body {
+// 	font-size: 1.5rem;
+// }
 
 .card-link {
-	font-size: 1.25rem;
+	font-size: 0.75rem;
 	text-decoration: underline;
 	align-self: flex-end;
 	padding: spacing(2);

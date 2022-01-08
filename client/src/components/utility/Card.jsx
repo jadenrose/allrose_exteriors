@@ -25,7 +25,7 @@ const Card = ({ component, className, children, props, ...rest }) => {
 							</Flexbox>
 						</Box>
 						<Flexbox className="card-link">
-							<Typography>read more</Typography>
+							<Typography>Read more</Typography>
 							<FontAwesomeIcon icon={faArrowCircleRight} />
 						</Flexbox>
 					</Flexbox>

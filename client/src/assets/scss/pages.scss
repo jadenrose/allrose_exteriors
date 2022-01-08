@@ -1,7 +1,7 @@
 @use 'variables' as *;
 
 .Page {
-	padding-top: spacing(12);
+	padding-top: spacing(6);
 
 	.hero-text {
 		text-transform: uppercase;
@@ -12,8 +12,8 @@
 	}
 
 	.hero-subtext {
-		margin: spacing(2.5) 0;
-		font-size: 2rem;
+		margin: spacing(2.5) 0 spacing(9.333);
+		font-size: 1.25rem;
 		line-height: normal;
 	}
 
@@ -27,6 +27,41 @@
 
 	section:nth-child(odd) {
 		background: $background-alt;
+	}
+}
+
+.home-section-1,
+.home-section-2,
+.home-section-3 {
+	.main-content-flex {
+		flex-direction: column;
+	}
+}
+
+.home-section-3 {
+	.section-preface {
+		margin-bottom: spacing(10.667);
+
+		h2 {
+			margin-bottom: spacing(1.35);
+		}
+
+		p {
+			font-size: 1.25rem;
+		}
+	}
+
+	.svg-box {
+		margin-bottom: spacing(10.667);
+
+		.RichText {
+			margin-bottom: spacing(2.5);
+		}
+
+		.Typography {
+			margin: 0;
+			letter-spacing: 0;
+		}
 	}
 }
 

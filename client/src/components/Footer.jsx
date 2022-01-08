@@ -6,9 +6,9 @@ import Typography from './utility/Typography'
 
 const Footer = () => (
 	<Box className="Footer" component="footer">
-		<Container flex>
+		<Container className="main-content-flex" flex>
 			<Logo />
-			<Flexbox className="footer-right">
+			<Flexbox className="footer-inner-content">
 				<Flexbox className="left">
 					<Box className="top-box">
 						<Typography component="p" className="footer-heading">
@@ -41,7 +41,7 @@ const Footer = () => (
 					<Typography component="p" className="footer-heading">
 						Service Area
 					</Typography>
-					<Typography component="p">
+					<Typography className="footer-subheading" component="p">
 						Serving Central Alberta Including:
 					</Typography>
 					<Flexbox className="service-areas">
