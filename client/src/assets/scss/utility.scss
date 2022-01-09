@@ -132,3 +132,11 @@ h3.Typography {
 		background: darken($accent, 6%);
 	}
 }
+
+.ProductCard {
+	padding: spacing(2);
+	box-shadow: $hard-shadow;
+	border-radius: 12px;
+	width: 186px;
+	height: 102px;
+}

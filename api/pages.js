@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const path = require('path')
 
+const composer = require(path.join(__dirname, '..', 'middleware', 'composer'))
+
 const Page = require(path.join(__dirname, '..', 'models', 'page'))
 
 router.get('/', async (req, res) => {
@@ -16,14 +18,8 @@ router.get('/', async (req, res) => {
 	}
 })
 
-router.patch('/:page_id', async (req, res) => {
+router.patch('/:page_id', composer, async (req, res) => {
 	try {
-		const token = req.header('x-auth-token')
-
-		if (!token) return res.sendStatus(401)
-		if (token !== process.env.JSON_COMPOSER_SECRET)
-			return res.sendStatus(403)
-
 		const page = await Page.findByIdAndUpdate(req.body._id, {
 			$set: req.body,
 		})

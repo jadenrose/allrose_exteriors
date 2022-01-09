@@ -1,9 +1,11 @@
+const path = require('path')
 const router = require('express').Router()
 const multer = require('multer')
 const mongoose = require('mongoose')
-const path = require('path')
 const { GridFsStorage } = require('multer-gridfs-storage')
 const url = process.env.MONGO_URI
+
+const composer = require(path.join(__dirname, '..', 'middleware', 'composer'))
 
 const connection = mongoose.createConnection(url)
 
@@ -57,7 +59,7 @@ const uploadMiddleware = (req, res, next) => {
 	})
 }
 
-router.post('/', uploadMiddleware, async (req, res) => {
+router.post('/', composer, uploadMiddleware, async (req, res) => {
 	try {
 		res.send(req.file)
 	} catch (err) {

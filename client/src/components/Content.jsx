@@ -8,8 +8,15 @@ import Typography from './utility/Typography'
 import Button from './utility/Button'
 import Link from './utility/Link'
 import RichText from './utility/RichText'
+import ProductCard from './utility/ProductCard'
 
-const Content = ({ contentType = 'plain', content, children, ...rest }) => {
+const Content = ({
+	contentType = 'plain',
+	content,
+	children,
+	productLogo,
+	...rest
+}) => {
 	const Component = (props) => {
 		if (contentType === 'box') return <Box {...props} />
 		if (contentType === 'container') return <Container {...props} />
@@ -18,6 +25,8 @@ const Content = ({ contentType = 'plain', content, children, ...rest }) => {
 		if (contentType === 'button') return <Button {...props} />
 		if (contentType === 'link') return <Link {...props} />
 		if (contentType === 'rich') return <RichText {...props} />
+		if (contentType === 'product')
+			return <ProductCard productLogo={productLogo} />
 
 		return <Typography {...props} />
 	}
