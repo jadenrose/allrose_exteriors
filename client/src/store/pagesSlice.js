@@ -5,11 +5,14 @@ const PENDING = 'pending'
 const OK = 'ok'
 const FAILED = 'failed'
 
-const uri = process.env.BACKEND_URI || 'http://localhost:5000'
+const URI =
+	process.env.NODE_ENV === 'development'
+		? 'http://localhost:5000'
+		: 'https://allrose-exteriors.herokuapp.com'
 
 export const fetchPages = createAsyncThunk('pages/fetchPages', async () => {
 	try {
-		const res = await axios.get(`${uri}/api/pages`)
+		const res = await axios.get(`${URI}/api/pages`)
 
 		const pages = res.data.sort((a, b) =>
 			a.order > b.order ? 1 : b.order > a.order ? -1 : 0

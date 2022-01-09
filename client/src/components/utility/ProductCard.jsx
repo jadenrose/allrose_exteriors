@@ -1,14 +1,14 @@
 import Link from './Link'
 
 const ProductCard = ({ productLogo, productUrl }) => {
-	const BACKEND_URI = process.env.BACKEND_URI || 'http://localhost:5000'
+	const URI =
+		process.env.NODE_ENV === 'development'
+			? 'http://localhost:5000'
+			: 'https://allrose-exteriors.herokuapp.com'
 
 	return (
 		<Link className="ProductCard" href={productUrl}>
-			<img
-				src={`${BACKEND_URI}/api/images/${productLogo}`}
-				alt="product logo"
-			/>
+			<img src={`${URI}/api/images/${productLogo}`} alt="product logo" />
 		</Link>
 	)
 }

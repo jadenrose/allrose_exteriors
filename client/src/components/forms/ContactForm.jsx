@@ -58,8 +58,12 @@ const ContactForm = () => {
 
 		setLoading(true)
 
-		const uri = process.env.BACKEND_URI || 'http://localhost:5000'
-		const res = await axios.post(`${uri}/api/submissions`, formData)
+		const URI =
+			process.env.NODE_ENV === 'development'
+				? 'http://localhost:5000'
+				: 'https://allrose-exteriors.herokuapp.com'
+
+		const res = await axios.post(`${URI}/api/submissions`, formData)
 
 		console.log(res.data)
 		setErrors(initialErrors)
