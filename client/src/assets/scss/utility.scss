@@ -134,6 +134,7 @@ h3.Typography {
 }
 
 .ProductCard {
+	display: flex;
 	padding: spacing(2);
 	box-shadow: $hard-shadow;
 	border-radius: 12px;

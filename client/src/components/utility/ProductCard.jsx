@@ -1,12 +1,16 @@
-import Flexbox from './Flexbox'
+import Link from './Link'
 
-const ProductCard = ({ productLogo }) => (
-	<Flexbox className="ProductCard">
-		<img
-			src={`http://localhost:5000/api/images/${productLogo}`}
-			alt="product logo"
-		/>
-	</Flexbox>
-)
+const ProductCard = ({ productLogo, productUrl }) => {
+	const BACKEND_URI = process.env.BACKEND_URI || 'http://localhost:5000'
+
+	return (
+		<Link className="ProductCard" href={productUrl}>
+			<img
+				src={`${BACKEND_URI}/api/images/${productLogo}`}
+				alt="product logo"
+			/>
+		</Link>
+	)
+}
 
 export default ProductCard

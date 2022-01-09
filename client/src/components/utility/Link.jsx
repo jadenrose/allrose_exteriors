@@ -1,21 +1,31 @@
 import { Link as RouterLink } from 'react-router-dom'
 
-const Link = ({ className, children, props, ...rest }) => {
+const Link = ({ className, children, to, href, props, ...rest }) => {
 	if (props && props.to)
 		return (
-			<RouterLink to={props.to} {...rest}>
+			<RouterLink
+				className={`Link${className ? ` ${className}` : ''}`}
+				to={props.to}
+				{...rest}
+			>
 				{children}
 			</RouterLink>
 		)
 
-	if (props && props.href)
+	if (href)
 		return (
-			<a href={props.href} {...rest}>
+			<a
+				className={`Link${className ? ` ${className}` : ''}`}
+				href={href}
+				{...rest}
+				target="_blank"
+				rel="noreferrer"
+			>
 				{children}
 			</a>
 		)
 
-	return null
+	return 'nothing here'
 }
 
 export default Link

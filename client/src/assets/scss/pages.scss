@@ -83,6 +83,10 @@
 
 	.ProductCard {
 		margin-bottom: spacing(4);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 
