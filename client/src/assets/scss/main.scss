@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'mixins';
 @use 'utility';
 @use 'components';
 @use 'pages';
@@ -26,10 +27,14 @@ body {
 	color: $color;
 	font-family: $font-family;
 	text-align: center;
+
+	@include mixins.tablet {
+		text-align: left;
+	}
 }
 
-main {
-	padding-top: spacing(12);
+main.depth-1 {
+	padding-top: spacing(6);
 	min-height: 100vh;
 }
 

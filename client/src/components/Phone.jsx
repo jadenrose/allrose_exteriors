@@ -3,16 +3,13 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons'
 
 import Flexbox from './utility/Flexbox'
 import Typography from './utility/Typography'
-import useScreen from '../hooks/useScreen'
 
-const Phone = () => {
-	const width = useScreen()
-
+const Phone = ({ size }) => {
 	return (
 		<a className="Phone" href="tel:+14033472522">
 			<Flexbox>
 				<FontAwesomeIcon className="phone-icon" icon={faPhone} />
-				{width > 768 && <Typography>403-347-2522</Typography>}
+				{size === 'large' && <Typography>403-347-2522</Typography>}
 			</Flexbox>
 		</a>
 	)

@@ -1,14 +1,35 @@
 import Link from './Link'
+import Typography from './Typography'
 
-const ProductCard = ({ productLogo, productUrl }) => {
-	const URI =
-		process.env.NODE_ENV === 'development'
-			? 'http://localhost:5000'
-			: 'https://allrose-exteriors.herokuapp.com'
+const ProductCard = ({
+	content,
+	productLogo,
+	productUrl,
+	className,
+	...rest
+}) => {
+	const URI = 'https://allrose-exteriors.herokuapp.com'
+
+	if (productLogo && productUrl)
+		return (
+			<Link
+				className={`ProductCard${className ? ` ${className}` : ''}`}
+				props={{ href: productUrl }}
+				{...rest}
+			>
+				<img
+					src={`${URI}/api/images/${productLogo}`}
+					alt="product logo"
+				/>
+			</Link>
+		)
 
 	return (
-		<Link className="ProductCard" href={productUrl}>
-			<img src={`${URI}/api/images/${productLogo}`} alt="product logo" />
+		<Link
+			className={`ProductCard${className ? ` ${className}` : ''}`}
+			{...rest}
+		>
+			<Typography>{content}</Typography>
 		</Link>
 	)
 }

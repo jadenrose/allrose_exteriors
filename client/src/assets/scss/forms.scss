@@ -4,6 +4,8 @@
 	position: relative;
 	text-align: center;
 	box-shadow: $soft-shadow;
+	overflow: hidden;
+	border-radius: 4px;
 
 	.Loading {
 		position: absolute;
@@ -26,6 +28,10 @@
 	}
 }
 
+label > .Typography {
+	font-weight: $bold;
+}
+
 input[type='text'],
 input[type='email'],
 input[type='tel'],
@@ -36,7 +42,7 @@ textarea,
 	border: none;
 	outline: none;
 	width: 100%;
-	border-radius: 8px;
+	border-radius: 4px;
 	box-shadow: 0 0 0 2px $light-grey inset;
 	padding: spacing(2);
 	color: inherit;
@@ -112,7 +118,7 @@ option {
 		box-shadow: $hard-shadow;
 		width: 110%;
 		z-index: 999;
-		border-radius: 8px;
+		border-radius: 4px;
 		overflow: hidden;
 
 		li {
@@ -143,7 +149,7 @@ option {
 	margin: 0;
 	background: $light-grey;
 	height: 100%;
-	border-radius: 8px 0 0 8px;
+	border-radius: 4px 0 0 4px;
 
 	.dollar-sign {
 		margin: 0;
@@ -156,5 +162,5 @@ option {
 	font-weight: $bold;
 	margin-top: 2px;
 	padding: spacing(1);
-	border-radius: 8px;
+	border-radius: 4px;
 }

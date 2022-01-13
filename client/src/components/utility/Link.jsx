@@ -1,6 +1,6 @@
 import { Link as RouterLink } from 'react-router-dom'
 
-const Link = ({ className, children, to, href, props, ...rest }) => {
+const Link = ({ className, children, props, ...rest }) => {
 	if (props && props.to)
 		return (
 			<RouterLink
@@ -12,11 +12,11 @@ const Link = ({ className, children, to, href, props, ...rest }) => {
 			</RouterLink>
 		)
 
-	if (href)
+	if (props && props.href)
 		return (
 			<a
 				className={`Link${className ? ` ${className}` : ''}`}
-				href={href}
+				href={props.href}
 				{...rest}
 				target="_blank"
 				rel="noreferrer"

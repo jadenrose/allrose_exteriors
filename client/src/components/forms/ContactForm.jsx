@@ -58,10 +58,7 @@ const ContactForm = () => {
 
 		setLoading(true)
 
-		const URI =
-			process.env.NODE_ENV === 'development'
-				? 'http://localhost:5000'
-				: 'https://allrose-exteriors.herokuapp.com'
+		const URI = 'https://allrose-exteriors.herokuapp.com'
 
 		const res = await axios.post(`${URI}/api/submissions`, formData)
 
@@ -130,16 +127,24 @@ const ContactForm = () => {
 					label="Type of work to be completed"
 					options={[
 						{
-							label: 'Siding',
-							value: 'Siding',
+							label: 'Siding, Soffit, & Fascia',
+							value: 'siding',
 						},
 						{
 							label: 'Roofing',
-							value: 'Roofing',
+							value: 'roofinh',
 						},
 						{
 							label: 'Windows',
-							value: 'Windows',
+							value: 'windows',
+						},
+						{
+							label: 'Patio Cover/Sun Room',
+							value: 'patio',
+						},
+						{
+							label: 'Hail/Storm Damage Repair',
+							value: 'hail',
 						},
 					]}
 					required

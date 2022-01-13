@@ -24,8 +24,8 @@ const Router = () => {
 					{pages.map((page, index) => (
 						<Route
 							key={index}
-							path={page.path}
-							element={<Page {...page} />}
+							path={`${page.path}/*`}
+							element={<Page {...page} path={page.path} />}
 						/>
 					))}
 					<Route path="/contact" element={<Contact />} />

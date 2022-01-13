@@ -5,10 +5,7 @@ const PENDING = 'pending'
 const OK = 'ok'
 const FAILED = 'failed'
 
-const URI =
-	process.env.NODE_ENV === 'development'
-		? 'http://localhost:5000'
-		: 'https://allrose-exteriors.herokuapp.com'
+const URI = 'https://allrose-exteriors.herokuapp.com'
 
 export const fetchPages = createAsyncThunk('pages/fetchPages', async () => {
 	try {

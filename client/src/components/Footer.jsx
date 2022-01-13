@@ -45,21 +45,57 @@ const Footer = () => (
 						Serving Central Alberta Including:
 					</Typography>
 					<Flexbox className="service-areas">
-						<Typography component="p">Red Deer</Typography>
-						<Typography component="p">Trochu</Typography>
-						<Typography component="p">Three Hills</Typography>
-						<Typography component="p">Penhold</Typography>
-						<Typography component="p">Sylvan Lake</Typography>
-						<Typography component="p">Lacombe</Typography>
-						<Typography component="p">Bentley</Typography>
-						<Typography component="p">
-							Rocky Mountain House
-						</Typography>
-						<Typography component="p">Ponoka</Typography>
-						<Typography component="p">Innisfail</Typography>
-						<Typography component="p">Carstairs</Typography>
-						<Typography component="p">Olds</Typography>
-						<Typography component="p">Bowden</Typography>
+						<Flexbox className="city-col-1">
+							<Box className="city-wrapper">
+								<Typography component="p">Red Deer</Typography>
+							</Box>
+							<Box className="city-wrapper">
+								<Typography component="p">Penhold</Typography>
+							</Box>
+							<Box className="city-wrapper">
+								<Typography component="p">Bentley</Typography>
+							</Box>
+							<Box className="city-wrapper">
+								<Typography component="p">Innisfail</Typography>
+							</Box>
+							<Box className="city-wrapper">
+								<Typography component="p">Bowden</Typography>
+							</Box>
+						</Flexbox>
+						<Flexbox className="city-col-2">
+							<Box className="city-wrapper">
+								<Typography component="p">Trochu</Typography>
+							</Box>
+							<Box className="city-wrapper">
+								<Typography component="p">
+									Sylvan Lake
+								</Typography>
+							</Box>
+							<Box className="city-wrapper">
+								<Typography component="p">
+									Rocky Mountain House
+								</Typography>
+							</Box>
+							<Box className="city-wrapper">
+								<Typography component="p">Carstairs</Typography>
+							</Box>
+						</Flexbox>
+						<Flexbox className="city-col-3">
+							<Box className="city-wrapper">
+								<Typography component="p">
+									Three Hills
+								</Typography>
+							</Box>
+							<Box className="city-wrapper">
+								<Typography component="p">Lacombe</Typography>
+							</Box>
+							<Box className="city-wrapper">
+								<Typography component="p">Ponoka</Typography>
+							</Box>
+							<Box className="city-wrapper">
+								<Typography component="p">Olds</Typography>
+							</Box>
+						</Flexbox>
 					</Flexbox>
 				</Flexbox>
 			</Flexbox>

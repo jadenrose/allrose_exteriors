@@ -16,8 +16,6 @@ const Content = ({
 	children,
 	productLogo,
 	productUrl,
-	to,
-	href,
 	...rest
 }) => {
 	const Component = (props) => {
@@ -26,14 +24,15 @@ const Content = ({
 		if (contentType === 'card') return <Card {...props} />
 		if (contentType === 'flex') return <Flexbox {...props} />
 		if (contentType === 'button') return <Button {...props} />
-		if (contentType === 'link')
-			return <Link to={to} href={href} {...props} />
+		if (contentType === 'link') return <Link {...props} />
 		if (contentType === 'rich') return <RichText {...props} />
 		if (contentType === 'product')
 			return (
 				<ProductCard
+					content={content}
 					productLogo={productLogo}
 					productUrl={productUrl}
+					{...props}
 				/>
 			)
 
