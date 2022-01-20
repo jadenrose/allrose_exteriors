@@ -64,6 +64,10 @@
 	}
 }
 
+.home-section-2 .Card {
+	flex-basis: 29%;
+}
+
 .home-section-3 {
 	.section-preface {
 		margin-bottom: spacing(10.667);
@@ -140,6 +144,17 @@
 .services,
 .products,
 .gallery {
+	@include mixins.tablet {
+		.hero-section {
+			width: 55%;
+
+			.Container {
+				width: 100%;
+				padding: 0 7.5vw;
+			}
+		}
+	}
+
 	.hero-text {
 		font-size: 2rem;
 		margin-bottom: spacing(2);
@@ -159,21 +174,54 @@
 		font-weight: $bold;
 		font-size: 1.5rem;
 	}
+
+	section {
+		&:nth-child(odd) {
+			background: $background;
+		}
+		&:nth-child(even) {
+			background: $background-alt;
+		}
+	}
 }
 
 .about-section-1 .main-content-flex {
 	flex-direction: column;
 
+	@include mixins.tablet {
+		flex-direction: row;
+	}
+
 	.text-container {
 		margin-bottom: spacing(8);
+
+		@include mixins.tablet {
+			margin-bottom: 0;
+			flex-basis: 35%;
+		}
 	}
 
 	.card-container {
 		flex-direction: column;
+
+		@include mixins.tablet {
+			flex-direction: row;
+			flex-basis: 60%;
+
+			.Card {
+				flex-basis: 45%;
+			}
+		}
 	}
 }
 
-.services-siding-section-1 {
+.services {
+	.ProductCard {
+		background: $background;
+	}
+}
+
+.services section-1 {
 	h2 {
 		margin-bottom: spacing(4);
 	}

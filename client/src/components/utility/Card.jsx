@@ -11,23 +11,19 @@ const Card = ({ component, className, children, props, ...rest }) => {
 		<>
 			{props && props.to && (
 				<Link to={props.to} className="Card">
-					<Flexbox className="card-container">
-						<Box>
-							<Flexbox className="card-title">
-								<Typography component="h3">
-									{props.title}
-								</Typography>
-							</Flexbox>
-							<Flexbox className="card-body">
-								<Typography component="p">
-									{children}
-								</Typography>
-							</Flexbox>
-						</Box>
-						<Flexbox className="card-link">
-							<Typography>Read more</Typography>
-							<FontAwesomeIcon icon={faArrowCircleRight} />
+					<Box>
+						<Flexbox className="card-title">
+							<Typography component="h3">
+								{props.title}
+							</Typography>
 						</Flexbox>
+						<Flexbox className="card-body">
+							<Typography component="p">{children}</Typography>
+						</Flexbox>
+					</Box>
+					<Flexbox className="card-link">
+						<Typography>Read more</Typography>
+						<FontAwesomeIcon icon={faArrowCircleRight} />
 					</Flexbox>
 				</Link>
 			)}
