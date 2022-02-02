@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "node server.js",
+		"local": "node -r dotenv/config server",
 		"dev": "concurrently \"nodemon -r dotenv/config server\" \"cd client && npm run start\"",
 		"seed": "node -r dotenv/config seed"
 	},

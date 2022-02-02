@@ -10,7 +10,7 @@ const pageSchema = Schema({
 		type: String,
 		required: true,
 	},
-	title: {
+	pageTitle: {
 		type: String,
 		required: true,
 	},

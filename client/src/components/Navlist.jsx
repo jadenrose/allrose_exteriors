@@ -30,7 +30,7 @@ const Navlist = ({ mobile = false, onNavigate }) => {
 											onNavigate()
 									}}
 								>
-									<Typography>{page.title}</Typography>
+									<Typography>{page.pageTitle}</Typography>
 								</NavLink>
 							</Box>
 						))}
