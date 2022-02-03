@@ -8,6 +8,7 @@ import Typography from './utility/Typography'
 import Button from './utility/Button'
 import Link from './utility/Link'
 import RichText from './utility/RichText'
+import Image from './utility/Image'
 import ProductCard from './utility/ProductCard'
 
 const Content = ({
@@ -26,6 +27,9 @@ const Content = ({
 		if (contentType === 'button') return <Button {...props} />
 		if (contentType === 'link') return <Link {...props} />
 		if (contentType === 'rich') return <RichText {...props} />
+
+		if (contentType === 'image') return <Image {...props} />
+
 		if (contentType === 'product')
 			return (
 				<ProductCard

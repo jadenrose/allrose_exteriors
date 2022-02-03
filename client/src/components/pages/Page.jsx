@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import Box from '../utility/Box'
 import Content from '../Content'
 
-const Page = ({ path, className, children, routes, ...rest }) => {
+const Page = ({ path, className, children, routes, pageTitle, ...rest }) => {
 	const depth = path === '/' ? 1 : path.split('/').filter(String).length
 
 	return (

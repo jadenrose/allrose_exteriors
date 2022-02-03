@@ -1,3 +1,4 @@
+import Image from './Image'
 import Link from './Link'
 import Typography from './Typography'
 
@@ -8,8 +9,6 @@ const ProductCard = ({
 	className,
 	...rest
 }) => {
-	const URI = 'https://allrose-exteriors.herokuapp.com'
-
 	if (productLogo && productUrl)
 		return (
 			<Link
@@ -17,10 +16,7 @@ const ProductCard = ({
 				props={{ href: productUrl }}
 				{...rest}
 			>
-				<img
-					src={`${URI}/api/images/${productLogo}`}
-					alt="product logo"
-				/>
+				<Image image={productLogo} />
 			</Link>
 		)
 

@@ -42,7 +42,7 @@ connection.once('open', () => {
 })
 
 const uploadMiddleware = (req, res, next) => {
-	const upload = store.single('image')
+	const upload = store.array('image')
 
 	upload(req, res, (err) => {
 		if (err) {
@@ -60,12 +60,36 @@ const uploadMiddleware = (req, res, next) => {
 }
 
 router.post('/', composer, uploadMiddleware, async (req, res) => {
-	try {
-		res.send(req.file)
-	} catch (err) {
-		res.status(500).send('server error')
+	const { files } = req
+	const fileIds = []
+
+	for (const file of files) {
+		const { id } = file
+
+		if (file.size > 5 * 10e6) {
+			deleteImage(id)
+			return res
+				.status(400)
+				.json({ errors: [{ msg: 'file may not exceed 5MB' }] })
+		}
+
+		console.log('uploaded file: ', file)
+		fileIds.push(file.id)
 	}
+
+	return res.json(fileIds)
 })
+
+const deleteImage = (id) => {
+	if (!id || id === 'undefined')
+		return res.status(400).json({ errors: [{ msg: 'no image id' }] })
+
+	const _id = new mongoose.Types.ObjectId(id)
+
+	gfs.delete(_id, (err) => {
+		if (err) return res.status(500).send('image deletion error')
+	})
+}
 
 router.get('/:image_id', ({ params: { image_id } }, res) => {
 	if (!image_id || image_id === 'undefined')
