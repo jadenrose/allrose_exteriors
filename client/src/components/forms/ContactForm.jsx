@@ -62,7 +62,6 @@ const ContactForm = () => {
 
 		const res = await axios.post(`${URI}/api/submissions`, formData)
 
-		console.log(res.data)
 		setErrors(initialErrors)
 		setLoading(false)
 		setSuccess(true)

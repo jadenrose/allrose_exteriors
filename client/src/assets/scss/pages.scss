@@ -1,37 +1,6 @@
 @use 'variables' as *;
 @use 'mixins';
 
-.home {
-	@include mixins.tablet {
-		.Button {
-			font-size: 2.667rem;
-		}
-	}
-
-	.hero-text {
-		text-transform: uppercase;
-		letter-spacing: 0;
-		max-width: 700px;
-		line-height: 0.9;
-		margin: 0;
-
-		@include mixins.tablet {
-			font-size: 7.333rem;
-		}
-	}
-
-	.hero-subtext {
-		margin: spacing(2.5) 0 spacing(9.333);
-		line-height: normal;
-		font-size: 1.25rem;
-
-		@include mixins.tablet {
-			font-size: 2rem;
-			margin: spacing(3.333) auto;
-		}
-	}
-}
-
 .Page {
 	.flex-text {
 		flex: 0 1 45%;
@@ -47,6 +16,80 @@
 
 	section:nth-child(odd) {
 		background: $background-alt;
+	}
+}
+
+.Page.home .home-section-hero {
+	background: none;
+}
+
+.home-section-hero {
+	position: relative;
+	min-height: calc(100vw / 2.5);
+	padding: spacing(15) 0;
+
+	.Container {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+	}
+
+	.hero-text-container {
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+		height: 100%;
+		max-height: 500px;
+	}
+
+	@include mixins.tablet {
+		.Button {
+			font-size: 2.667rem;
+		}
+	}
+
+	.hero-text {
+		text-transform: uppercase;
+		letter-spacing: 0;
+		max-width: 700px;
+		line-height: 0.9;
+		margin: 0;
+		transform: translateX(-4px);
+
+		@include mixins.tablet {
+			font-size: 7.333rem;
+		}
+	}
+
+	.hero-subtext {
+		// margin: spacing(2.5) 0 spacing(9.333);
+		line-height: normal;
+		font-size: 1.25rem;
+
+		@include mixins.tablet {
+			font-size: 2rem;
+			// margin: spacing(3.333) auto;
+		}
+	}
+
+	.image-container {
+		z-index: -1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+
+		img {
+			object-position: center;
+			opacity: 0.15;
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
 	}
 }
 
