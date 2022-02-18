@@ -91,6 +91,15 @@ const deleteImage = (id) => {
 	})
 }
 
+router.get('/', (req, res) => {
+	gfs.find().toArray((err, files) => {
+		if (!files || !files.length)
+			return res.status(400).json({ error: 'no files found' })
+
+		res.json(files)
+	})
+})
+
 router.get('/:image_id', ({ params: { image_id } }, res) => {
 	if (!image_id || image_id === 'undefined')
 		return res.status(400).json({ error: 'no image id' })
@@ -103,6 +112,16 @@ router.get('/:image_id', ({ params: { image_id } }, res) => {
 
 		gfs.openDownloadStream(_id).pipe(res)
 	})
+})
+
+router.delete('/:image_id', ({ params: { image_id } }, res) => {
+	try {
+		deleteImage(image_id)
+
+		res.send(image_id)
+	} catch (err) {
+		res.sendStatus(500)
+	}
 })
 
 module.exports = router

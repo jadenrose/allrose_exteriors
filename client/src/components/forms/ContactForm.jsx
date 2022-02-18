@@ -60,7 +60,7 @@ const ContactForm = () => {
 
 		const URI = 'https://allrose-exteriors.herokuapp.com'
 
-		const res = await axios.post(`${URI}/api/submissions`, formData)
+		await axios.post(`${URI}/api/submissions`, formData)
 
 		setErrors(initialErrors)
 		setLoading(false)
