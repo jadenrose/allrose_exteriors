@@ -7,7 +7,7 @@ const Image = ({ image }) => {
 
 	return (
 		<>
-			{image instanceof Array && (
+			{image instanceof Array && image[currentImage] && (
 				<LazyLoadImage
 					src={`${URI}/api/images/${image[currentImage]}`}
 					onLoad={() => {
