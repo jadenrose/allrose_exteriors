@@ -29,6 +29,10 @@ h1.Typography {
 h2.Typography {
 	font-size: 2rem;
 	color: $accent;
+
+	@include mixins.tablet {
+		font-size: 2.667rem;
+	}
 }
 
 h3.Typography {
@@ -72,12 +76,18 @@ h3.Typography {
 		margin-bottom: 0;
 		max-width: 200px;
 		width: 100%;
-		align-self: stretch;
+		min-height: 180px;
+	}
+
+	@include mixins.desktop {
+		max-width: 350px;
+		font-size: 1.5rem;
+		padding: spacing(2.4);
+		min-height: 300px;
 	}
 
 	.Typography {
 		margin: 0;
-		letter-spacing: 0;
 	}
 }
 
@@ -90,6 +100,14 @@ h3.Typography {
 
 	.Typography {
 		font-size: 1.25rem;
+	}
+
+	@include mixins.desktop {
+		.Typography {
+			font-size: 2rem;
+		}
+
+		padding: spacing(1.4);
 	}
 }
 
@@ -108,6 +126,12 @@ h3.Typography {
 		color: $accent;
 		transform: translateY(2px);
 		margin-left: 1ch;
+	}
+
+	@include mixins.desktop {
+		font-size: 1.25rem;
+		padding: spacing(1);
+		transform: translate(spacing(1), spacing(1));
 	}
 }
 
@@ -143,6 +167,7 @@ h3.Typography {
 	border-radius: 12px;
 	width: 154px;
 	min-height: 100px;
+	background: $background;
 
 	img {
 		width: 100%;
@@ -151,5 +176,6 @@ h3.Typography {
 
 	.Typography {
 		margin: spacing(2);
+		text-align: center;
 	}
 }

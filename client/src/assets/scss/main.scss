@@ -15,6 +15,10 @@ body {
 
 html {
 	font-size: 12px;
+
+	@include mixins.desktop {
+		font-size: 16px;
+	}
 }
 
 *,

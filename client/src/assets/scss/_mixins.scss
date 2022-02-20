@@ -17,6 +17,10 @@ $desktop-width: 1200px;
 
 @mixin topbarMargin {
 	margin-top: spacing(6);
+
+	@include tablet {
+		margin-top: spacing(10);
+	}
 }
 
 @mixin backgroundImage {
@@ -39,6 +43,36 @@ $desktop-width: 1200px;
 			object-fit: cover;
 			width: 100%;
 			height: 100%;
+		}
+	}
+}
+
+@mixin imageSplit {
+	padding: 0;
+
+	.Container {
+		display: flex;
+		align-items: center;
+		overflow: visible;
+	}
+
+	.main-content-box {
+		margin-right: spacing(12);
+	}
+
+	.image-container {
+		position: relative;
+		z-index: unset;
+		overflow: visible;
+
+		img {
+			max-width: none;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			object-fit: unset;
+			opacity: 1;
 		}
 	}
 }

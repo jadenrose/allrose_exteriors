@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const URI = 'https://allrose-exteriors.herokuapp.com'
 const Image = ({ image }) => {
@@ -8,8 +7,9 @@ const Image = ({ image }) => {
 	return (
 		<>
 			{image instanceof Array && image[currentImage] && (
-				<LazyLoadImage
+				<img
 					src={`${URI}/api/images/${image[currentImage]}`}
+					alt=""
 					onLoad={() => {
 						if (currentImage < image.length - 1)
 							setCurrentImage(currentImage + 1)
