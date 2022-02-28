@@ -5,6 +5,8 @@ import Loading from '../components/pages/Loading'
 import Error from '../components/pages/Error'
 import Page from '../components/pages/Page'
 import Contact from '../components/pages/Contact'
+import Terms from '../components/pages/Terms'
+import Privacy from '../components/pages/Privacy'
 
 import usePages from '../hooks/usePages'
 
@@ -29,6 +31,8 @@ const Router = () => {
 						/>
 					))}
 					<Route path="/contact" element={<Contact />} />
+					<Route path="/terms" element={<Terms />} />
+					<Route path="/privacy" element={<Privacy />} />
 					<Route path="*" element={<Navigate to="" />} />
 				</Routes>
 			) : (

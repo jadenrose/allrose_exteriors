@@ -18,11 +18,13 @@ const Contact = () => {
 		<Box component="main" className="Contact Page depth-1">
 			<Box component="section" className="contact-section-hero">
 				<Container>
-					<Typography component="h1" className="hero-text">
-						<span className="block">renovations</span>
-						<span className="block">repairs</span>
-						<span className="block">new builds</span>
-					</Typography>
+					<Box className="main-content-box">
+						<Typography component="h1" className="hero-text">
+							<span className="block">renovations</span>
+							<span className="block">repairs</span>
+							<span className="block">new builds</span>
+						</Typography>
+					</Box>
 				</Container>
 				<Box className="image-container">
 					<Image image={['62116c49e2116151f0e9bfc4']} />

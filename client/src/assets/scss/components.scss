@@ -108,132 +108,208 @@
 }
 
 .Footer {
-	padding: spacing(8) 0;
-	text-align: left;
+	background: $accent;
+	color: rgba(white, 0.8);
+	border-left: none;
+	border-right: none;
+	padding: spacing(6) 0;
+	font-size: 0.8rem;
+	box-shadow: 0 10px 10px -2px rgba(black, 0.15) inset;
 
-	.Logo {
-		transform: unset;
+	h4 {
+		color: white;
+		font-size: 1.2rem;
+		margin-bottom: spacing(1);
+	}
+
+	h5 {
+		font-size: 1rem;
+		margin-bottom: spacing(1);
+	}
+
+	cite {
+		opacity: 0.7;
+	}
+
+	.contact-link {
+		display: flex;
+		align-items: center;
+		text-decoration: underline;
+		padding: spacing(1);
+		justify-content: center;
 
 		@include mixins.tablet {
-			flex-basis: 45%;
-			margin-bottom: 0;
+			transform: translateX(spacing(-1));
+			justify-content: left;
+		}
 
-			.Typography {
-				font-size: 2rem;
-			}
+		&:hover {
+			color: white;
 		}
 	}
 
-	.Typography {
-		letter-spacing: 0;
+	.svg-inline--fa {
+		color: white;
+		font-size: 1rem;
+		margin-right: 1ch;
 	}
 
 	.main-content-flex {
 		flex-direction: column;
-		align-items: flex-start;
-		max-width: 150px;
-		margin: 0 auto;
+		align-items: baseline;
 
 		@include mixins.tablet {
-			align-items: center;
-			max-width: unset;
 			flex-direction: row;
-			justify-content: space-between;
 		}
 	}
-}
 
-.footer-inner-content {
-	align-items: baseline;
-	justify-content: left;
-	flex-direction: column;
-
-	@include mixins.tablet {
-		flex-basis: 55%;
-		flex-direction: row;
-		justify-content: space-between;
-	}
-}
-
-.footer-inner-content > .Box {
-	font-size: 0.75rem;
-	flex-grow: 0;
-	flex-shrink: 1;
-	flex-basis: 50%;
-	flex-direction: column;
-	align-items: flex-start;
-
-	@include mixins.tablet {
-		&.left {
-			align-self: stretch;
-			flex-basis: 40%;
-		}
-
-		&.right {
-			align-items: flex-start;
-			flex-basis: 60%;
-			margin-left: spacing(4);
-		}
-
-		justify-content: space-between;
-	}
-}
-
-.footer-inner-content {
-	.top-box {
+	.inner-content-item {
+		flex-direction: column;
+		flex: 0 1 27%;
+		justify-content: center;
+		width: 100%;
 		margin-bottom: spacing(6);
+
+		@include mixins.tablet {
+			align-items: baseline;
+		}
 	}
 
-	& > .Box {
-		margin-bottom: spacing(6);
+	.Navlist {
+		display: block;
+	}
+
+	.nav-item {
+		flex: 0 1 26%;
+	}
+
+	.nav-link {
+		border: none;
+		padding: spacing(1);
+		text-transform: lowercase;
+		display: block;
+
+		@include mixins.tablet {
+			transform: translateX(spacing(-1));
+		}
+
+		&:hover {
+			color: white;
+		}
+	}
+
+	.Form {
+		margin-bottom: spacing(4);
 
 		@include mixins.tablet {
 			margin-bottom: 0;
 		}
 	}
-}
 
-.footer-heading {
-	margin-bottom: spacing(1);
-	color: $accent;
-	font-size: 1rem;
-	font-weight: $bold;
-}
-
-.footer-subheading {
-	margin-bottom: spacing(4);
-}
-
-.service-areas {
-	flex-direction: column;
-	height: 200px;
-	flex-wrap: wrap;
-	justify-content: left;
-	align-items: flex-start;
-	margin: 0;
-
-	.Typography {
-		margin-bottom: spacing(1);
+	.FormGroup {
+		margin: 0;
 	}
 
-	@include mixins.tablet {
-		height: auto;
-		flex-direction: row;
-		flex-wrap: nowrap;
+	.FormControl {
+		align-self: stretch;
+
+		input {
+			background: rgba(white, 0.8);
+			border-radius: 2px;
+			color: $color;
+			box-shadow: none;
+			width: 100%;
+			height: 100%;
+
+			&:focus {
+				background: white;
+			}
+		}
+	}
+
+	.Button {
+		border-radius: 2px;
+		background: rgba(white, 0.8);
+		color: $accent;
+		align-self: stretch;
+		font-size: 1rem;
+
+		&:hover {
+			background: white;
+		}
+	}
+
+	.business-hours {
+		margin-bottom: spacing(4);
+
+		.Typography {
+			display: block;
+			margin-bottom: spacing(1);
+		}
+	}
+
+	.service-areas-wrapper {
+		flex-basis: 40%;
+	}
+
+	.service-areas {
+		align-items: baseline;
+		flex-wrap: wrap;
+
+		.Typography {
+			display: block;
+			flex: 0 1 32%;
+			margin-bottom: spacing(1.5);
+		}
+	}
+
+	.footer-bottom {
 		justify-content: space-between;
-		width: 100%;
+		flex-direction: column;
+		align-items: center;
+
+		@include mixins.tablet {
+			align-items: flex-end;
+			flex-direction: row;
+		}
 	}
-}
 
-.city-col-1,
-.city-col-2,
-.city-col-3 {
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: left;
-	flex: 0 1 34%;
+	.footer-bottom-item {
+		flex: 0 1 32%;
 
-	@include mixins.tablet {
-		flex: 0 1 26%;
+		&.copyright {
+			margin-bottom: spacing(1);
+
+			@include mixins.tablet {
+				margin-bottom: 0;
+			}
+		}
+
+		&.form {
+			order: -1;
+
+			@include mixins.tablet {
+				order: unset;
+			}
+		}
+	}
+
+	.terms-policy {
+		justify-content: center;
+		width: 100%;
+
+		a {
+			display: block;
+			text-decoration: underline;
+			padding: spacing(0.5) spacing(1);
+
+			&:hover {
+				color: white;
+			}
+		}
+	}
+
+	.terms {
+		border-right: 2px solid rgba(white, 0.8);
 	}
 }

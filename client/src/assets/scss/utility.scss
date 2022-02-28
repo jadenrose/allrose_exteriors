@@ -3,6 +3,7 @@
 
 .Typography {
 	margin-top: 0;
+	max-width: 80ch;
 
 	&.accent {
 		color: $accent;
@@ -29,10 +30,6 @@ h1.Typography {
 h2.Typography {
 	font-size: 2rem;
 	color: $accent;
-
-	@include mixins.tablet {
-		font-size: 2.667rem;
-	}
 }
 
 h3.Typography {
@@ -69,7 +66,6 @@ h3.Typography {
 	border-radius: 3px;
 	padding: spacing(2.7);
 	align-self: center;
-	margin-bottom: spacing(8);
 	max-width: 175px;
 
 	@include mixins.tablet {

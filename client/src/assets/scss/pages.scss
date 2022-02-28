@@ -5,18 +5,6 @@
 	flex: 0 1 50%;
 }
 
-section {
-	padding: spacing(7) 0;
-
-	@include mixins.tablet {
-		padding: spacing(10.667) 0;
-	}
-
-	@include mixins.desktop {
-		padding: spacing(14) 0;
-	}
-}
-
 .Page.home .home-section-hero {
 	background: none;
 }
@@ -30,6 +18,27 @@ section {
 .contact-section-hero {
 	@include mixins.topbarMargin;
 	@include mixins.backgroundImage;
+}
+
+.Terms,
+.Privacy {
+	.Container {
+		@include mixins.topbarMargin;
+	}
+
+	article {
+		margin-bottom: spacing(8);
+	}
+
+	h2 {
+		font-size: 1.2rem;
+	}
+
+	h3 {
+		font-size: 1rem;
+		font-weight: $normal;
+		text-decoration: underline;
+	}
 }
 
 .about-section-hero,
@@ -51,35 +60,44 @@ section {
 	}
 }
 
+.home-section-1,
+.home-section-2,
+.home-section-3,
+.home-section-4,
+.home-section-5,
+.about-section-1,
+.services .section-1,
+.products-section-1,
+.partners-section-1,
+.gallery-section-1,
+.contact-section-1 {
+	padding: spacing(8) 0;
+}
+
 .home-section-4 {
 	@include mixins.backgroundImage;
-	@include mixins.imageSplit;
 
-	@include mixins.desktop {
+	@include mixins.tablet {
+		@include mixins.imageSplit;
+
 		.image-container {
-			height: 732px;
+			height: 600px;
 
 			img {
 				width: 708px;
 				height: 732px;
 			}
 		}
-
-		background: $background-alt;
 	}
 }
 
-.home-section-hero {
+.home-section-hero,
+.contact-section-hero {
 	position: relative;
 	overflow: hidden;
 
-	@include mixins.tablet {
-		margin-top: spacing(10);
-	}
-
-	padding: spacing(15) 0;
-
 	.Container {
+		padding: spacing(15) 0;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
@@ -93,38 +111,48 @@ section {
 
 	@include mixins.tablet {
 		.Button {
-			font-size: 2.667rem;
+			font-size: 2rem;
 		}
 	}
 }
 
 .home-section-hero,
 .contact-section-hero {
+	.Container {
+		@include mixins.tablet {
+			transform: translateX(spacing(-8));
+		}
+	}
+
 	.hero-text {
 		text-transform: uppercase;
 		letter-spacing: 0;
 		line-height: 0.9;
 		margin: 0;
 		transform: translateX(-4px);
-		width: 100%;
 
 		@include mixins.tablet {
-			font-size: 7.33rem;
-			max-width: 700px;
-		}
-
-		@include mixins.desktop {
-			font-size: 6rem;
+			font-size: 4rem;
 		}
 	}
 
 	.hero-subtext {
 		line-height: normal;
-		font-size: 1.25rem;
+		font-size: 1.5rem;
 		margin: spacing(4) 0;
+	}
+
+	.main-content-box {
+		display: flex;
+		flex-direction: column;
+		padding: spacing(6) spacing(2);
+		align-items: center;
+		margin: 0 auto;
 
 		@include mixins.tablet {
-			font-size: 2rem;
+			padding: spacing(8);
+			margin: unset;
+			align-items: flex-start;
 		}
 	}
 }
@@ -149,11 +177,26 @@ section {
 	}
 }
 
+.home-section-1 {
+	p {
+		margin-bottom: 0;
+	}
+}
+
 .home-section-2 {
 	background: $background-alt;
 
 	.Card {
 		flex-basis: 29%;
+		margin-bottom: spacing(6);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		@include mixins.tablet {
+			margin-bottom: 0;
+		}
 	}
 }
 
@@ -210,6 +253,11 @@ section {
 }
 
 .home-section-4 {
+	.Typography {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	@include mixins.desktop {
 		align-items: center;
 
@@ -219,7 +267,6 @@ section {
 	}
 
 	.main-content-box {
-		margin-bottom: spacing(9.333);
 		position: relative;
 
 		@include mixins.tablet {
@@ -259,6 +306,7 @@ section {
 .about,
 .services,
 .products,
+.partners,
 .gallery {
 	@include mixins.tablet {
 		.hero-section {
@@ -279,6 +327,11 @@ section {
 	.hero-subtext {
 		line-height: 1.6;
 		margin-bottom: spacing(4);
+
+		a {
+			color: $accent;
+			text-decoration: underline;
+		}
 	}
 
 	.hero-text-container {
@@ -316,11 +369,19 @@ section {
 		.card-container {
 			flex-direction: column;
 
+			.Card {
+				margin-bottom: spacing(8);
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
 			@include mixins.tablet {
 				flex-direction: row;
 				justify-content: left;
 
 				.Card {
+					margin-bottom: 0;
 					margin-right: spacing(4);
 
 					&:last-child {
@@ -426,7 +487,7 @@ section {
 			max-width: 550px;
 
 			.product-card-container {
-				width: 175px;
+				width: 160px;
 				transform: translateX(spacing(-1));
 
 				@include mixins.desktop {
@@ -464,6 +525,60 @@ section {
 			width: 200px;
 			transform: translateX(spacing(-3));
 		}
+	}
+}
+
+.gallery {
+	h2 {
+		text-align: center;
+	}
+
+	.gallery-item {
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: space-between;
+		box-shadow: $hard-shadow;
+		border-radius: 2px;
+		overflow: hidden;
+		margin-bottom: spacing(8);
+
+		@include mixins.tablet {
+			flex-direction: row;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		h3 {
+			color: $accent;
+			margin-bottom: spacing(0.5);
+		}
+
+		a {
+			&:hover {
+				color: $accent;
+			}
+			text-decoration: underline;
+			margin-bottom: spacing(2);
+		}
+	}
+
+	.gallery-item-text {
+		padding: spacing(4);
+		flex: 0 1 60%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		@include mixins.tablet {
+			align-items: flex-start;
+		}
+	}
+
+	.gallery-item-image {
+		flex: 0 1 40%;
 	}
 }
 
@@ -554,12 +669,8 @@ section {
 
 	.Form {
 		width: 100%;
-		padding: spacing(4);
+		padding: spacing(6);
 		max-width: 600px;
-
-		@include mixins.tablet {
-			padding: spacing(6) spacing(12);
-		}
 
 		.Button {
 			width: 100%;

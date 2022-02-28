@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
 		const temlpateOutput = template(req.body)
 
 		sendMail({
-			to: req.body.email,
+			to: 'allsiding@telus.net',
 			subject: 'Allrose Exteriors - Confirmation of Submission',
 			html: temlpateOutput,
 		})

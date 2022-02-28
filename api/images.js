@@ -114,7 +114,7 @@ router.get('/:image_id', ({ params: { image_id } }, res) => {
 	})
 })
 
-router.delete('/:image_id', ({ params: { image_id } }, res) => {
+router.delete('/:image_id', composer, ({ params: { image_id } }, res) => {
 	try {
 		deleteImage(image_id)
 
