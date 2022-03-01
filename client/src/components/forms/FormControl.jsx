@@ -21,12 +21,12 @@ const FormControl = ({
 
 	const toggleShowDropDown = () => setShowDropDown(!showDropDown)
 
-	const handleSelect = (e, option) => {
+	const handleSelect = (e, key) => {
 		e.stopPropagation()
 
 		onChange({
 			target: {
-				value: option.value,
+				value: key,
 			},
 		})
 
@@ -46,7 +46,7 @@ const FormControl = ({
 			) : category === 'select' ? (
 				<Box className="select-group" {...rest}>
 					<Flexbox onClick={toggleShowDropDown} className="select">
-						<Typography>{value}</Typography>
+						<Typography>{options[value]}</Typography>
 						<FontAwesomeIcon
 							icon={faCaretDown}
 							className="down-arrow"
@@ -58,15 +58,15 @@ const FormControl = ({
 									className="overlay"
 								/>
 								<Box className="dropdown" component="ul">
-									{options.map((option, index) => (
+									{Object.keys(options).map((key) => (
 										<Box
-											key={index}
+											key={key}
 											onClick={(e) =>
-												handleSelect(e, option)
+												handleSelect(e, key)
 											}
 											component="li"
 										>
-											{option.label}
+											{options[key]}
 										</Box>
 									))}
 								</Box>

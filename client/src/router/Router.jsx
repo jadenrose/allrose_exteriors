@@ -1,5 +1,6 @@
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 
 import Loading from '../components/pages/Loading'
 import Error from '../components/pages/Error'
@@ -11,8 +12,13 @@ import Privacy from '../components/pages/Privacy'
 import usePages from '../hooks/usePages'
 
 const Router = () => {
+	const location = useLocation()
 	const { loading, error } = usePages()
 	const pages = useSelector((state) => state.pages.list)
+
+	useEffect(() => {
+		if (location) window.scrollTo(0, 0)
+	}, [location])
 
 	return (
 		<>

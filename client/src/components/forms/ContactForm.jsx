@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { isEmail } from 'validator'
+import { useSearchParams } from 'react-router-dom'
 import axios from 'axios'
 
 import Typography from '../utility/Typography'
@@ -14,13 +15,14 @@ import Success from './Success'
 const ContactForm = () => {
 	const [loading, setLoading] = useState(false)
 	const [success, setSuccess] = useState(false)
+	const [searchParams] = useSearchParams()
 
 	const [formData, setFormData] = useState({
 		name: '',
-		email: '',
+		email: searchParams.get('email') || '',
 		phone: '',
 		address: '',
-		workType: '',
+		workType: searchParams.get('service') || '',
 		timeline: '',
 		budget: '',
 		otherDetails: '',
@@ -124,28 +126,13 @@ const ContactForm = () => {
 					}
 					category="select"
 					label="Type of work to be completed"
-					options={[
-						{
-							label: 'Siding, Soffit, & Fascia',
-							value: 'siding',
-						},
-						{
-							label: 'Roofing',
-							value: 'roofinh',
-						},
-						{
-							label: 'Windows',
-							value: 'windows',
-						},
-						{
-							label: 'Patio Cover/Sun Room',
-							value: 'patio',
-						},
-						{
-							label: 'Hail/Storm Damage Repair',
-							value: 'hail',
-						},
-					]}
+					options={{
+						siding: 'Siding, Soffit, & Fascia',
+						roofing: 'Roofing',
+						windows: 'Windows',
+						patio: 'Patio Cover/Sun Room',
+						hail: 'Hail/Storm Damage Repair',
+					}}
 					required
 				></FormControl>
 			</FormGroup>

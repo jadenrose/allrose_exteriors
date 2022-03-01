@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { isEmail } from 'validator'
+import { useNavigate } from 'react-router-dom'
 
 import Container from './utility/Container'
 import Box from './utility/Box'
@@ -14,6 +17,18 @@ import Button from './utility/Button'
 
 const Footer = () => {
 	const year = new Date().getFullYear()
+	const [emailValue, setEmailValue] = useState('')
+	const [emailError, setEmailError] = useState('')
+	const navigate = useNavigate()
+
+	const handleSubmit = () => {
+		if (!isEmail(emailValue)) return setEmailError('must enter valid email')
+
+		setEmailValue('')
+		setEmailError('')
+
+		navigate(`/contact?email=${emailValue}`)
+	}
 
 	return (
 		<Box className="Footer" component="footer">
@@ -87,9 +102,20 @@ const Footer = () => {
 								Request a free estimate (enter email below)
 							</Typography>
 							<FormGroup>
-								<FormControl type="email" />
-								<Button>submit</Button>
+								<FormControl
+									type="email"
+									value={emailValue}
+									onChange={(e) =>
+										setEmailValue(e.target.value)
+									}
+								/>
+								<Button onClick={handleSubmit}>submit</Button>
 							</FormGroup>
+							{emailError && (
+								<Typography className="email-error">
+									{emailError}
+								</Typography>
+							)}
 						</Form>
 					</Box>
 					<Flexbox className="footer-bottom-item terms-policy">
