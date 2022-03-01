@@ -1,10 +1,13 @@
 const express = require('express')
+const enforce = require('express-sslify')
 const cors = require('cors')
 const path = require('path')
 const serveStatic = require('serve-static')
 const history = require('connect-history-api-fallback')
 
 const app = express()
+
+app.use(enforce.HTTPS())
 
 const db = require(path.join(__dirname, 'db'))
 
@@ -17,22 +20,6 @@ if (process.env.NODE_ENV === 'development') {
 	const morgan = require('morgan')
 	app.use(morgan('dev'))
 }
-
-app.all('*', function (req, res, next) {
-	console.log(
-		'req start: ',
-		req.secure,
-		req.hostname,
-		req.url
-		// app.get('port')
-	)
-	if (req.secure) {
-		return next()
-	}
-
-	// res.redirect('https://' + req.hostname + ':' + app.get('secPort') + req.url)
-	res.redirect('https://' + req.hostname + req.url)
-})
 
 app.use('/api/pages', require(path.join(__dirname, 'api', 'pages')))
 app.use('/api/images', require(path.join(__dirname, 'api', 'images')))
