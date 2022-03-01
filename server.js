@@ -23,14 +23,15 @@ app.all('*', function (req, res, next) {
 		'req start: ',
 		req.secure,
 		req.hostname,
-		req.url,
-		app.get('port')
+		req.url
+		// app.get('port')
 	)
 	if (req.secure) {
 		return next()
 	}
 
-	res.redirect('https://' + req.hostname + ':' + app.get('secPort') + req.url)
+	// res.redirect('https://' + req.hostname + ':' + app.get('secPort') + req.url)
+	res.redirect('https://' + req.hostname + req.url)
 })
 
 app.use('/api/pages', require(path.join(__dirname, 'api', 'pages')))
