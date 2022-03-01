@@ -23,6 +23,22 @@ app.use('/api/images', require(path.join(__dirname, 'api', 'images')))
 app.use('/api/submissions', require(path.join(__dirname, 'api', 'submissions')))
 
 app.use(history())
+
+app.all('*', function (req, res, next) {
+	console.log(
+		'req start: ',
+		req.secure,
+		req.hostname,
+		req.url,
+		app.get('port')
+	)
+	if (req.secure) {
+		return next()
+	}
+
+	res.redirect('https://' + req.hostname + ':' + app.get('secPort') + req.url)
+})
+
 app.use('/', serveStatic(path.join(__dirname, 'client', 'build')))
 app.get('/.*/', (req, res) => {
 	res.sendFile(path.join(__dirname, 'client', 'build'))
