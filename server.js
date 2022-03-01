@@ -18,12 +18,6 @@ if (process.env.NODE_ENV === 'development') {
 	app.use(morgan('dev'))
 }
 
-app.use('/api/pages', require(path.join(__dirname, 'api', 'pages')))
-app.use('/api/images', require(path.join(__dirname, 'api', 'images')))
-app.use('/api/submissions', require(path.join(__dirname, 'api', 'submissions')))
-
-app.use(history())
-
 app.all('*', function (req, res, next) {
 	console.log(
 		'req start: ',
@@ -38,6 +32,12 @@ app.all('*', function (req, res, next) {
 
 	res.redirect('https://' + req.hostname + ':' + app.get('secPort') + req.url)
 })
+
+app.use('/api/pages', require(path.join(__dirname, 'api', 'pages')))
+app.use('/api/images', require(path.join(__dirname, 'api', 'images')))
+app.use('/api/submissions', require(path.join(__dirname, 'api', 'submissions')))
+
+app.use(history())
 
 app.use('/', serveStatic(path.join(__dirname, 'client', 'build')))
 app.get('/.*/', (req, res) => {
