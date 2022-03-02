@@ -249,6 +249,16 @@
 			margin: 0;
 			letter-spacing: 0;
 		}
+
+		a {
+			color: $accent;
+			text-decoration: underline;
+			font-weight: $bold;
+
+			&:hover {
+				filter: brightness(120%) saturate(120%);
+			}
+		}
 	}
 }
 
