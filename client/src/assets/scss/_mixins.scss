@@ -70,6 +70,10 @@ $desktop-width: 1200px;
 	.main-content-box {
 		@include tablet {
 			transform: translateX(spacing(-4));
+
+			.Typography {
+				max-width: 30vw;
+			}
 		}
 	}
 

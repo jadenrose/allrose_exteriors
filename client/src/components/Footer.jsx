@@ -14,6 +14,7 @@ import Form from './forms/Form'
 import FormGroup from './forms/FormGroup'
 import FormControl from './forms/FormControl'
 import Button from './utility/Button'
+import Link from './utility/Link'
 
 const Footer = () => {
 	const year = new Date().getFullYear()
@@ -119,12 +120,12 @@ const Footer = () => {
 						</Form>
 					</Box>
 					<Flexbox className="footer-bottom-item terms-policy">
-						<a className="terms" href="/terms">
+						<Link className="terms" to="/terms">
 							<Typography>terms and conditions</Typography>
-						</a>
-						<a href="/privacy">
+						</Link>
+						<Link to="/privacy">
 							<Typography>privacy policy</Typography>
-						</a>
+						</Link>
 					</Flexbox>
 				</Flexbox>
 			</Container>
